@@ -1,0 +1,872 @@
+Portifolio code: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wisdom Adegbola | Software, Cybersecurity & Cloud</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Wisdom Adegbola – Computer Science student focused on software engineering, cybersecurity, and cloud." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-card: #0b1020;
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.1);
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2933;
+      --badge-bg: #111827;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #020617 100%);
+      color: var(--text-main);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 20px 60px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(2,6,23,0.95), rgba(2,6,23,0.75), transparent);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-name {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-tagline {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 13px;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover {
+      color: #e5e7eb;
+    }
+
+    nav a.active {
+      color: #e5e7eb;
+      border-bottom-color: var(--accent);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 32px;
+      padding-top: 40px;
+      align-items: flex-start;
+    }
+
+    .hero-main h1 {
+      font-size: clamp(28px, 4vw, 34px);
+      margin: 0;
+    }
+
+    .hero-role {
+      font-size: 15px;
+      margin-top: 8px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero-location {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .hero-about {
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #e5e7eb;
+    }
+
+    .hero-actions {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #6366f1, #4f46e5);
+      color: white;
+      border-color: rgba(129, 140, 248, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(to right, #4f46e5, #4338ca);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: rgba(148, 163, 184, 0.5);
+      color: #e5e7eb;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(148, 163, 184, 0.08);
+    }
+
+    .hero-contact-card {
+      background: radial-gradient(circle at top left, rgba(99, 102, 241, 0.3), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(8, 47, 73, 0.7), transparent 60%);
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 16px 16px 14px;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-contact-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #d1d5db;
+      margin-bottom: 10px;
+    }
+
+    .contact-row {
+      font-size: 13px;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .contact-label {
+      color: var(--text-muted);
+    }
+
+    .contact-value a {
+      color: #e5e7eb;
+    }
+
+    .contact-chip-row {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e5e7eb;
+      background-color: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+    }
+
+    .section {
+      margin-top: 40px;
+      padding: 20px;
+      border-radius: 18px;
+      background: radial-gradient(circle at top left, rgba(15,23,42,0.9), rgba(2,6,23,0.95));
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .section-pill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background-color: var(--accent-soft);
+      color: #c7d2fe;
+      border: 1px solid rgba(129, 140, 248, 0.5);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 22px;
+    }
+
+    .experience-item,
+    .project-item {
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .experience-item:last-child,
+    .project-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .item-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .item-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .item-bullets {
+      margin: 6px 0 0 14px;
+      padding: 0;
+      color: #e5e7eb;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .item-bullets li {
+      margin-bottom: 4px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background-color: var(--badge-bg);
+      color: #d1d5db;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .skills-card-title {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    .skills-card-body {
+      color: var(--text-muted);
+    }
+
+    .skills-card-body span {
+      display: inline-block;
+      margin-right: 6px;
+      margin-bottom: 3px;
+    }
+
+    .timeline-item {
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: #e5e7eb;
+    }
+
+    .timeline-item span {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .copy-toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(15,23,42,0.9);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 12px;
+      color: #e5e7eb;
+      border: 1px solid rgba(148,163,184,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      z-index: 20;
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-wrap: wrap;
+      }
+    }
+    .skills-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.skill-logo-card {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.skill-logo-card:hover {
+  transform: translateY(-4px);
+  background: rgba(30, 41, 59, 0.8);
+}
+
+.skill-logo-card img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.4));
+}
+
+.skill-logo-card span {
+  display: block;
+  font-size: 13px;
+  color: #e5e7eb;
+  margin-top: 4px;
+}
+.about-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.hero-headshot {
+  width: 95px;          /* your size */
+  height: 95px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-headshot:hover {
+  transform: scale(1.15);    /* zoom in */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.55);
+}
+
+
+@media (min-width: 768px) {
+  .about-wrapper {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="nav-left">
+        <div class="nav-name">Wisdom Adegbola</div>
+        <div class="nav-tagline">Software • Cybersecurity • Cloud</div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about" class="nav-link active">About</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page">
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="hero-main">
+        <div class="hero-headshot-wrapper">
+          <img src="images/headshot.jpg" alt="Wisdom Adegbola" class="hero-headshot">
+        </div>        
+        <h1>Hello, I'm Wisdom 👋</h1>
+        <div class="hero-role">Computer Science @ North Carolina A&amp;T · Software, Cybersecurity &amp; Cloud</div>
+        <div class="hero-location">Based in Garner, NC · Open to internships &amp; early-career roles</div>
+
+        <p class="hero-about">
+          Undergraduate researcher and IT security professional with hands-on experience in AI-driven cybersecurity,
+          cloud security, and enterprise IT operations. I enjoy building secure, scalable systems, improving detection
+          accuracy, and automating workflows across cloud and on-prem environments.
+        </p>
+
+        <div class="hero-actions">
+          <!-- If you later host your resume, replace href with your resume URL -->
+          <a href="resume2026_.pdf" class="btn-primary" target="_blank">View Resume</a>
+          <a href="#projects" class="btn-secondary">View featured projects</a>
+        </div>
+      </div>
+
+      <aside class="hero-contact-card">
+        <div class="hero-contact-title">Quick contact</div>
+
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">
+            <a href="mailto:wisdomadegbola8@gmail.com">wisdomadegbola8@gmail.com</a>
+          </span>
+        </div>
+
+        <div class="contact-row">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">
+            <a href="tel:19195902629">+1 (919) 590-2629</a>
+          </span>
+        </div>
+
+        <div class="contact-row">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">
+            <a href="https://linkedin.com/in/ooremideadegbola1" target="_blank" rel="noreferrer">
+              /in/ooremideadegbola1
+            </a>
+          </span>
+        </div>
+
+        <div class="contact-row">
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">
+            <a href="https://github.com/guwapoj" target="_blank" rel="noreferrer">
+              @guwapoj
+            </a>
+          </span>
+        </div>
+
+        <div class="contact-chip-row">
+          <div class="chip">Google Cloud Digital Leader</div>
+          <div class="chip">Associate Cloud Engineer</div>
+          <div class="chip">CompTIA Security+ (in progress)</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- EXPERIENCE + PROJECTS -->
+    <section class="section" id="experience">
+      <div class="section-header">
+        <h2 class="section-title">Experience</h2>
+        <span class="section-pill">Hands-on security &amp; IT</span>
+      </div>
+
+      <div class="two-col">
+        <!-- Experience column -->
+        <div>
+          <div class="experience-item">
+            <div class="item-header">
+              <div>
+                <div class="item-title">Undergraduate Research Assistant – AI &amp; Cybersecurity</div>
+                <div class="item-meta">North Carolina A&amp;T State University · Greensboro, NC · Sep 2025 – Present</div>
+              </div>
+            </div>
+            <ul class="item-bullets">
+              <li>Researched AI-driven cybersecurity threats and improved anomaly detection accuracy by 20% through model optimization and evaluation.</li>
+              <li>Developed and tested intrusion detection models using Python and scikit-learn to identify malicious network patterns and reduce false positives.</li>
+              <li>Created documentation and presented research findings to faculty, strengthening understanding of adversarial ML defenses.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">Python</span>
+              <span class="badge">scikit-learn</span>
+              <span class="badge">Cybersecurity</span>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="item-header">
+              <div>
+                <div class="item-title">IT &amp; Cybersecurity Intern</div>
+                <div class="item-meta">Client Technology Services · Greensboro, NC · Jun 2025 – Aug 2025</div>
+              </div>
+            </div>
+            <ul class="item-bullets">
+              <li>Executed vulnerability scans using Nessus and Wireshark, identifying and mitigating 50+ high-risk endpoints and improving compliance by 25%.</li>
+              <li>Automated patching and auditing workflows with PowerShell, cutting manual workload by 20% and speeding up incident response.</li>
+              <li>Enforced MFA and endpoint protection across 100+ devices, minimizing unauthorized access risks and strengthening security posture.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">Nessus</span>
+              <span class="badge">Wireshark</span>
+              <span class="badge">PowerShell</span>
+              <span class="badge">MFA</span>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="item-header">
+              <div>
+                <div class="item-title">Information Technology Help Desk Technician – Security Team</div>
+                <div class="item-meta">North Carolina A&amp;T State University · Sep 2024 – Present</div>
+              </div>
+            </div>
+            <ul class="item-bullets">
+              <li>Supported enterprise IT operations through endpoint monitoring, user access management, and incident triage.</li>
+              <li>Provided Tier-1/2 support to 5,000+ users, resolving 40+ weekly issues while maintaining a 95% satisfaction rate.</li>
+              <li>Configured and managed Active Directory accounts and implemented endpoint protection policies to enforce secure access control.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">Active Directory</span>
+              <span class="badge">Endpoint Security</span>
+              <span class="badge">Customer Support</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects column -->
+        <div id="projects">
+          <div class="section-header" style="padding-left: 0; padding-right: 0; margin-top: 0;">
+            <h3 class="section-title" style="font-size:16px;">Featured Projects</h3>
+          </div>
+
+          <div class="project-item">
+            <div class="item-header">
+              <div class="item-title">Cloud Security Deployment Lab</div>
+              <div class="item-meta">Google Cloud · IAM · Compute Engine</div>
+            </div>
+            <ul class="item-bullets">
+              <li>Deployed secure virtual machines on Google Cloud using IAM policies and <code>gcloud</code> CLI to enforce least privilege access control.</li>
+              <li>Configured firewall rules and enabled Cloud Logging to monitor access patterns and enhance visibility.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">Google Cloud</span>
+              <span class="badge">IAM</span>
+              <span class="badge">Firewall Rules</span>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="item-header">
+              <div class="item-title">Security Event Monitoring System</div>
+              <div class="item-meta">Python · Flask · SQLite · REST API</div>
+            </div>
+            <ul class="item-bullets">
+              <li>Developed a Flask-based web app to log and monitor security events via RESTful APIs for near real-time alerting.</li>
+              <li>Implemented secure authentication and integrated SQLite for data storage to improve traceability and response.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">Python</span>
+              <span class="badge">Flask</span>
+              <span class="badge">REST API</span>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="item-header">
+              <div class="item-title">Network Log Analyzer</div>
+              <div class="item-meta">Python · Pandas · Regex</div>
+            </div>
+            <ul class="item-bullets">
+              <li>Created Python scripts to parse SSH logs and detect repeated failed login attempts from unauthorized IPs.</li>
+              <li>Visualized login failure trends using Pandas and Matplotlib to identify brute-force attack patterns.</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">Security Automation</span>
+              <span class="badge">Data Visualization</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills-logos">
+      <div class="section-header">
+        <h2 class="section-title">Skills</h2>
+        <span class="section-pill">Technologies · Frameworks · Tools</span>
+      </div>
+    
+      <div class="skills-logo-grid">
+        
+        <!-- Example Skill Card (Replace images later) -->
+        <div class="skill-logo-card">
+          <img src="logos/python.png" alt="Python Logo">
+          <span>Python</span>
+        </div>
+    
+        <div class="skill-logo-card">
+          <img src="logos/java.png" alt="Java Logo">
+          <span>Java</span>
+        </div>
+    
+        <div class="skill-logo-card">
+          <img src="logos/cpp.png" alt="C++ Logo">
+          <span>C++</span>
+        </div>
+    
+        <div class="skill-logo-card">
+          <img src="logos/javascript.png" alt="JavaScript Logo">
+          <span>JavaScript</span>
+        </div>
+    
+        <div class="skill-logo-card">
+          <img src="logos/sql.png" alt="SQL Logo">
+          <span>SQL</span>
+        </div>
+    
+        <div class="skill-logo-card">
+          <img src="logos/gcloud.png" alt="Google Cloud Logo">
+          <span>Google Cloud</span>
+        </div>
+    
+        <div class="skill-logo-card">
+          <img src="logos/aws.png" alt="AWS Logo">
+          <span>AWS</span>
+        </div>
+    
+        <div class="skill-logo-card">
+          <img src="logos/docker.png" alt="Docker Logo">
+          <span>Docker</span>
+        </div>
+    
+        <div class="skill-logo-card">
+          <img src="logos/kubernetes.png" alt="Kubernetes Logo">
+          <span>Kubernetes</span>
+        </div>
+    
+        <div class="skill-logo-card">
+          <img src="logos/terraform.png" alt="Terraform Logo">
+          <span>Terraform</span>
+        </div>
+    
+        <div class="skill-logo-card">
+          <img src="logos/powershell.png" alt="PowerShell Logo">
+          <span>PowerShell</span>
+        </div>
+    
+        <div class="skill-logo-card">
+          <img src="logos/bash.png" alt="Bash Logo">
+          <span>Bash</span>
+        </div>
+    
+      </div>
+    </section>
+    
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="section-header">
+        <h2 class="section-title">Education &amp; Certifications</h2>
+        <span class="section-pill">North Carolina A&amp;T State University</span>
+      </div>
+
+      <div class="timeline-item">
+        <strong>B.S. in Computer Science</strong> – North Carolina A&amp;T State University
+        <br />
+        <span>Expected Aug 2026 · Greensboro, NC</span>
+      </div>
+
+      <div class="timeline-item">
+        <strong>Relevant Coursework</strong>:
+        <span>Data Structures &amp; Algorithms, Operating Systems, Computer Networks, Database Systems (SQL),
+        Software Engineering, Programming in C++, Java &amp; Python, Cloud Computing.</span>
+      </div>
+
+      <div class="timeline-item" style="margin-top: 10px;">
+        <strong>Certifications</strong>:
+        <span>Google Cloud Digital Leader (Oct 2025), Google Cloud Associate Cloud Engineer (Oct 2025),
+        CompTIA Security+ (In Progress).</span>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-header">
+        <h2 class="section-title">Contact</h2>
+        <span class="section-pill">Let’s connect</span>
+      </div>
+
+      <p style="font-size: 14px; color:#e5e7eb; margin-bottom: 10px;">
+        If you’re hiring for software engineering, cloud, or cybersecurity roles and think my background could be a fit,
+        I’d love to connect. The fastest way to reach me is by email or LinkedIn.
+      </p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;">
+        <button class="btn-primary" id="copy-email">
+          Copy email
+        </button>
+        <a href="mailto:wisdomadegbola8@gmail.com" class="btn-secondary">
+          Email me directly
+        </a>
+        <a href="https://linkedin.com/in/ooremideadegbola1" target="_blank" rel="noreferrer" class="btn-secondary">
+          View LinkedIn profile
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      Built by Wisdom Adegbola · View more at
+      <a href="https://github.com/guwapoj" target="_blank" rel="noreferrer">@guwapoj</a>
+    </footer>
+  </div>
+
+  <div class="copy-toast" id="copy-toast">Email copied to clipboard 🎯</div>
+
+  <script>
+    // Smooth nav active state based on scroll
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    function onScroll() {
+      let currentId = "";
+      const scrollY = window.scrollY + 120; // offset for sticky header
+      sections.forEach((section) => {
+        if (scrollY >= section.offsetTop && scrollY < section.offsetTop + section.offsetHeight) {
+          currentId = section.id;
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === "#" + currentId);
+      });
+    }
+
+    window.addEventListener("scroll", onScroll);
+
+    // Copy email button
+    const copyBtn = document.getElementById("copy-email");
+    const toast = document.getElementById("copy-toast");
+    const email = "wisdomadegbola8@gmail.com";
+
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(email);
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 1800);
+      } catch (err) {
+        alert("Email: " + email);
+      }
+    });
+
+    // Resume button placeholder (you can update this later)
+    document.getElementById("view-resume").addEventListener("click", (e) => {
+      e.preventDefault();
+      // TODO: Replace with your actual hosted resume link
+      alert("Once you upload your resume online, update the 'href' of this button with your resume URL.");
+    });
+  </script>
+</body>
+</html>
+
